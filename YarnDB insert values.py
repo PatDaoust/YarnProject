@@ -277,7 +277,7 @@ if __name__ == "__main__":
         ravelry_adapter = HTTPAdapter(max_retries=3)
         a_session.mount('https://ravelry.com', ravelry_adapter)
 
-        for num in range(11000, 12000):
+        for num in range(12000, 13000):
             print(num)
             get_and_store_pattern(num)
             get_and_store_yarn(num)
