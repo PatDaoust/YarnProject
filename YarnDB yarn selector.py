@@ -211,10 +211,11 @@ def getYarnAttributes():
 
 
 if __name__ == "__main__":
-    # for line in suggestYarn("https://www.ravelry.com/patterns/library/soap-cozy-crochet4earth"):
-    #     print(line)
-    #     print("----------------------------------")
+    for line in suggestYarn("https://www.ravelry.com/patterns/library/soap-cozy-crochet4earth"):
+        print(line)
+        print("----------------------------------")
     pass
+    # TODO ask for user input for suggestYarn(URL)
     # suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou")
     # suggestYarn("https://www.ravelry.com/patterns/library/hexy-heaven-stroller")
     # suggestYarn("https://www.ravelry.com/patterns/library/kitty-couches-green-sofa")
