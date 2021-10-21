@@ -164,7 +164,6 @@ def suggestYarn(pattern_url):
     each dict representing a yarn that could be used to make the pattern,
     each int representing how mant skeins of that yarn would be needed to make the pattern
     """
-    pdb.set_trace()
     # analyze yarn recommended by pattern
     pattern_id = getPatternID(pattern_url)
     pattern = getPattern(pattern_id)
@@ -211,7 +210,7 @@ def getYarnAttributes():
 
 
 if __name__ == "__main__":
-    for line in suggestYarn("https://www.ravelry.com/patterns/library/soap-cozy-crochet4earth"):
+    for line in suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou"):
         print(line)
         print("----------------------------------")
     pass
