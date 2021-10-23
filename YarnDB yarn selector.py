@@ -212,13 +212,26 @@ def prettyPrintYarn(yarn):
     """assumes yarn_object is a dict from ravelry's API
     prints a yarn object in a human readable way
     """
-    print(yarn)
+    # TODO order lines
+    # TODO add lables on valuess
+    print(yarn[0]["id"])
+    print(yarn[0]["name"])
+    print(yarn[0]["permalink"])
+    print(yarn[0]["machine_washable"])
+    print(yarn[0]["rating_average"])
+    print(yarn[0]["rating_count"])
+    print(yarn[0]["texture"])
+    print(yarn[0]["yarn_company_name"])
+    print(yarn[0]["yarn_weight"])
+    print(yarn[0]["discontinued"])
+    print(yarn[1])
+    # print(yarn[0][""])
 
 
 if __name__ == "__main__":
     for line in suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou"):
-        # print(line)
-        prettyPrintYarn(line)
+        print(line)
+        # prettyPrintYarn(line)
         print("----------------------------------")
     # TODO ask for user input for suggestYarn(URL)
     # suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou")
