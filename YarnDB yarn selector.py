@@ -177,9 +177,12 @@ def suggestYarn(pattern_url):
     # put attributes into list
     attributes = []
     if pattern_yarn_attributes:
+        useless_attributes = ["care", "dye", "ply", "sustanaibility"]
         for attribute in pattern_yarn_attributes:
-            attributes += [attribute["permalink"]]
+            if attribute["yarn_attribute_group"]["permalink"] not in useless_attributes:
+                attributes += [attribute["permalink"]]
     # get yarn recommendations
+    # TODO figure out if/how all attributes come up in pattern
     yarns = yarnSearch(pattern_yarn_yarn_weight_name, attributes)
     # calculate how many skeins of each possible yarn are needed
     project_yardage = pattern.json()['patterns'][str(pattern_id)]['yardage']
@@ -225,11 +228,11 @@ def prettyPrintYarn(yarn):
 
 
 if __name__ == "__main__":
-    for line in suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou"):
-        # print(line)
-        prettyPrintYarn(line)
+    print("Here are some yarns that I recommend for your project:")
+    print("----------------------------------")
+    for yarn in suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou"):
+        prettyPrintYarn(yarn)
         print("----------------------------------")
-    # TODO ask for user input for suggestYarn(URL)
     # suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou")
     # suggestYarn("https://www.ravelry.com/patterns/library/hexy-heaven-stroller")
     # suggestYarn("https://www.ravelry.com/patterns/library/kitty-couches-green-sofa")
@@ -243,5 +246,7 @@ if __name__ == "__main__":
 yarn_attributes_valid = ['dry-flat', 'hand-wash', 'hand-wash-cold','machine-dry', 'machine-wash', 'superwash', 'barber-pole', 'gradient', 'heathered', 'marled', 'multi-strand-unplied', 'self-patterning', 'self-striping', 'semi-solid', 'solid', 'speckled', 'tonal', 'tweed', 'variegated', 'chain-plied', 'chainette-i-cord', 'coils', 'halo', 'ribbon', 'ruffle', 'slub', 'tape', 'thick-and-thin', 'unspun', 'z-twist', 'beads', 'feathers', 'felt', 'other', 'ribbons', 'sequins', 'boucle', 'chenille', 'eyelash', 'flamme', 'ladder', 'mesh', 'pom-pom', 'sueded', 'single-ply', '2-ply', '3-ply', '4-ply', 'cabled', 'multi-ply-5', 'core-spun', 'semi-woolen-spun', 'semi-worsted-spun', 'woolen-spun', 'worsted-spun', 'fleece-dyed', 'hand-dyed', 'machine-dyed', 'natural-dyes', 'undyed', 'mini-skeins', 'winding-required', 'certified-organic', 'fair-trade', 'recycled', 'conductive', 'mercerized', 'moth-proofed']
 
 # TODO test if skein needed is accurate
+# TODO test yarn recommendations for velvet cache-cou
 # TODO test yarn recommendations for other projects
-# TODO clean up output for yarn recommendations
+
+# TODO optional: allow user to filter resuts
