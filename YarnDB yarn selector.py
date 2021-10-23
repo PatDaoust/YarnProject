@@ -164,7 +164,6 @@ def suggestYarn(pattern_url):
     each dict representing a yarn that could be used to make the pattern,
     each int representing how mant skeins of that yarn would be needed to make the pattern
     """
-    pdb.set_trace()
     # analyze yarn recommended by pattern
     pattern_id = getPatternID(pattern_url)
     pattern = getPattern(pattern_id)
@@ -172,16 +171,16 @@ def suggestYarn(pattern_url):
     pattern_yarn = getRecommendedYarn(yarn_id)
     pattern_yarn_attributes =\
         pattern_yarn.json()['yarns'][str(yarn_id)]['yarn_attributes']
-    pattern_yarn_texture = pattern_yarn.json()['yarns'][str(yarn_id)]['texture']
+    # pattern_yarn_texture = pattern_yarn.json()['yarns'][str(yarn_id)]['texture']
     pattern_yarn_yarn_weight_name =\
         pattern_yarn.json()['yarns'][str(yarn_id)]['yarn_weight']['name']
     # put attributes into list
     attributes = []
-    # TODO process atttributes list
     if pattern_yarn_attributes:
-        attributes += [pattern_yarn_attributes]
+        for attribute in pattern_yarn_attributes:
+            attributes += [attribute["permalink"]]
     # get yarn recommendations
-    yarns = yarnSearch(pattern_yarn_yarn_weight_name, pattern_yarn_texture, attributes)
+    yarns = yarnSearch(pattern_yarn_yarn_weight_name, attributes)
     # calculate how many skeins of each possible yarn are needed
     project_yardage = pattern.json()['patterns'][str(pattern_id)]['yardage']
     yarns_and_amounts = []
@@ -209,9 +208,17 @@ def getYarnAttributes():
             print(x)
 
 
+def prettyPrintYarn(yarn):
+    """assumes yarn_object is a dict from ravelry's API
+    prints a yarn object in a human readable way
+    """
+    print(yarn)
+
+
 if __name__ == "__main__":
     for line in suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou"):
-        print(line)
+        # print(line)
+        prettyPrintYarn(line)
         print("----------------------------------")
     # TODO ask for user input for suggestYarn(URL)
     # suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou")
@@ -226,5 +233,6 @@ if __name__ == "__main__":
 
 yarn_attributes_valid = ['dry-flat', 'hand-wash', 'hand-wash-cold','machine-dry', 'machine-wash', 'superwash', 'barber-pole', 'gradient', 'heathered', 'marled', 'multi-strand-unplied', 'self-patterning', 'self-striping', 'semi-solid', 'solid', 'speckled', 'tonal', 'tweed', 'variegated', 'chain-plied', 'chainette-i-cord', 'coils', 'halo', 'ribbon', 'ruffle', 'slub', 'tape', 'thick-and-thin', 'unspun', 'z-twist', 'beads', 'feathers', 'felt', 'other', 'ribbons', 'sequins', 'boucle', 'chenille', 'eyelash', 'flamme', 'ladder', 'mesh', 'pom-pom', 'sueded', 'single-ply', '2-ply', '3-ply', '4-ply', 'cabled', 'multi-ply-5', 'core-spun', 'semi-woolen-spun', 'semi-worsted-spun', 'woolen-spun', 'worsted-spun', 'fleece-dyed', 'hand-dyed', 'machine-dyed', 'natural-dyes', 'undyed', 'mini-skeins', 'winding-required', 'certified-organic', 'fair-trade', 'recycled', 'conductive', 'mercerized', 'moth-proofed']
 
-# TODO fix yarn suggestions etc to use yarn_attributes
-# getYarn('https://www.ravelry.com/yarns/library/fyberspates-scrumptious-lace').json()['yarn']['yarn_attributes']
+# TODO test if skein needed is accurate
+# TODO test yarn recommendations for other projects
+# TODO clean up output for yarn recommendations
