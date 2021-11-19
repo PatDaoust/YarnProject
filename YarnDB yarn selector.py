@@ -233,20 +233,9 @@ if __name__ == "__main__":
     for yarn in suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou"):
         prettyPrintYarn(yarn)
         print("----------------------------------")
-    # suggestYarn("https://www.ravelry.com/patterns/library/velvet-cache-cou")
-    # suggestYarn("https://www.ravelry.com/patterns/library/hexy-heaven-stroller")
-    # suggestYarn("https://www.ravelry.com/patterns/library/kitty-couches-green-sofa")
-    # suggestYarn("https://www.ravelry.com/patterns/library/mermaid-tail-dice-bag-2")
-    # suggestYarn("https://www.ravelry.com/patterns/library/spring-cleaning-scrubbies")
-    # suggestYarn("https://www.ravelry.com/patterns/library/buckets-of-fun")
-    # suggestYarn("https://www.ravelry.com/patterns/library/kitty-couches-green-sofa")
-    # suggestYarn("https://www.ravelry.com/patterns/library/whirly-wings-shawl")
 
 
 yarn_attributes_valid = ['dry-flat', 'hand-wash', 'hand-wash-cold','machine-dry', 'machine-wash', 'superwash', 'barber-pole', 'gradient', 'heathered', 'marled', 'multi-strand-unplied', 'self-patterning', 'self-striping', 'semi-solid', 'solid', 'speckled', 'tonal', 'tweed', 'variegated', 'chain-plied', 'chainette-i-cord', 'coils', 'halo', 'ribbon', 'ruffle', 'slub', 'tape', 'thick-and-thin', 'unspun', 'z-twist', 'beads', 'feathers', 'felt', 'other', 'ribbons', 'sequins', 'boucle', 'chenille', 'eyelash', 'flamme', 'ladder', 'mesh', 'pom-pom', 'sueded', 'single-ply', '2-ply', '3-ply', '4-ply', 'cabled', 'multi-ply-5', 'core-spun', 'semi-woolen-spun', 'semi-worsted-spun', 'woolen-spun', 'worsted-spun', 'fleece-dyed', 'hand-dyed', 'machine-dyed', 'natural-dyes', 'undyed', 'mini-skeins', 'winding-required', 'certified-organic', 'fair-trade', 'recycled', 'conductive', 'mercerized', 'moth-proofed']
 
-# TODO test if skein needed is accurate
-# TODO test yarn recommendations for velvet cache-cou
-# TODO test yarn recommendations for other projects
 
 # TODO optional: allow user to filter resuts
