@@ -7,7 +7,8 @@ Created on Sun Aug 15 11:00:56 2021
 
 import requests
 from requests.adapters import HTTPAdapter
-import pdb
+from browser import document, prompt, html, alert
+from browser.local_storage import storage
 
 
 def getPatternID(pattern_url):
@@ -225,6 +226,12 @@ def prettyPrintYarn(yarn):
     print("Average rating: " + str(yarn[0]["rating_average"]))
     print("Ratings count: " + str(yarn[0]["rating_count"]))
     print("Link: " + "https://www.ravelry.com/yarns/library/" + yarn[0]["permalink"])
+
+
+def displayYarn(yarn):
+    """assumes yarn_object is a dict from ravelry's API
+    displays a yarn object on a webpage"""
+    # TODO
 
 
 if __name__ == "__main__":
