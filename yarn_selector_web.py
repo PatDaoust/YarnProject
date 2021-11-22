@@ -246,3 +246,8 @@ yarn_attributes_valid = ['dry-flat', 'hand-wash', 'hand-wash-cold','machine-dry'
 
 
 # TODO optional: allow user to filter resuts
+
+# TODO:
+# write equivalent to display_map
+# write equivalent to submit: document["submit"].bind("click", base64_compute)
+# write equivalent to clear: document["clear-btn"].bind("click", clear_map)
